@@ -47,11 +47,14 @@ function matchDOM(modelNode, inputNode) {
 
   if (modelNode.hasChildNodes()) {
     return every(modelNode.childNodes, function(node, index) {
-      return matchDOM(node, inputNode.childNodes[index])
+      return innerMatch(node, inputNode.childNodes[index])
     })
   }
   
   return true
 }
 
-module.exports = matchHTML
+module.exports = {
+ default: matchHTML,
+ matchDOM: matchDOM
+}
