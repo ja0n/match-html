@@ -1,12 +1,17 @@
 {
   "name": "match-html",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Check html consistency according to a model",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": ["html", "match", "validate", "validation"],
+  "keywords": [
+    "html",
+    "match",
+    "validate",
+    "validation"
+  ],
   "author": "ja0n",
   "license": "MIT"
 }
