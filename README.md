@@ -6,7 +6,7 @@ Ok,  here it goes:
 
 ```js
 import matchHTML from 'match-html'
-// or const matchHTML = require('mach-html').default
+// or const matchHTML = require('mach-html')
 
 const model = `
   <header>
