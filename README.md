@@ -23,7 +23,7 @@ const model = `
   </footer>
 `
 
-const isValid = matchHTML(model, input)
+const isValid = matchHTML(model, input) // true or false
 ```
 
 p.s: `matchHTML` handles **whitespace**
