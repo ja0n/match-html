@@ -12,7 +12,7 @@ const model = `
   <header>
     <h1 acceptTags="h2|h3|h4"></h1>
   </header>
-  <main 
+  <main>
     <nav childCount="2"> 
       <a></a>
       <a></a>
