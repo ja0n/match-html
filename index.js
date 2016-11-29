@@ -1,4 +1,5 @@
-var every = (...args) => Array.prototype.every.call(...args)
+var every = function (context, fn) { return Array.prototype.every.call(context, fn) }
+var find = function (context, fn) { return Array.prototype.find.call(context, fn) }
 var whitespaceRegex = /\>\s+\</g
 
 function matchHTML(model, input) {
@@ -45,8 +46,22 @@ function matchDOM(modelNode, inputNode) {
     return false
   }
 
+  var matchAttr = every(modelNode.attributes, function (modelAttr) {
+    return find(inputNode.attributes, function (inputAttr) {
+      var nameIsEqual = inputAttr.nodeName == modelAttr.nodeName
+      var valueIsEqual = inputAttr.value == modelAttr.value
+
+      return nameIsEqual && valueIsEqual 
+    })
+  })
+
+  if (!matchAttr) {
+    return false
+  }
+
+
   if (modelNode.hasChildNodes()) {
-    return every(modelNode.childNodes, function(node, index) {
+    return every(modelNode.childNodes, function (node, index) {
       return matchDOM(node, inputNode.childNodes[index])
     })
   }
