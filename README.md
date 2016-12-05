@@ -2,7 +2,7 @@
 Check HTML consistency according to a model
 
 ## Usage
-Ok,  here it goes:
+Ok, here it goes:
 
 ```js
 import matchHTML from 'match-html'
@@ -29,7 +29,8 @@ const isValid = matchHTML(model, input) // true or false
 p.s: `matchHTML` handles **whitespace**
 
 ## Parameters
+Parameters are simply reserved HTML attributes. These are:
 * `childCount`: how many childs the node should have
 * `acceptTags`: which tags the node can be; delimit with `|`; `*` = any tag
 
-p.s: Any other attribute that is not listed above will take place in the matching
+p.s: Any other attribute that is not listed above will take place in the attribute matching
