@@ -56,7 +56,7 @@ function matchDOM(modelNode, inputNode) {
 
     return find(inputNode.attributes, function (inputAttr) {
       var nameIsEqual = inputAttr.nodeName == modelAttr.nodeName
-      var valueIsEqual = inputAttr.value == modelAttr.value
+      var valueIsEqual = lowerCase(inputAttr.value) == lowerCase(modelAttr.value)
 
       return nameIsEqual && valueIsEqual 
     })
