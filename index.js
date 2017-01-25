@@ -40,6 +40,8 @@ function matchDOM(modelNode, inputNode) {
   if (modelNode.nodeType === document.TEXT_NODE) {
     return true
     return lowerCase(modelNode.wholeText) === lowerCase(inputNode.wholeText)
+  } else if (modelNode.nodeType === document.COMMENT_NODE) {
+    return true
   }
 
   var acceptTags = modelNode.getAttribute('acceptTags')
