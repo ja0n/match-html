@@ -24,7 +24,12 @@ function makeDOM(html) {
 }
 
 function removeWhitespace(str) {
-  return str.replace(whitespaceRegex, '><')
+  var newStr = str.replace(whitespaceRegex, '><')
+  return removeLineBreaks(newStr);
+}
+
+function removeLineBreaks(str) {
+  return str.replace("\n", '');
 }
 
 function matchDOM(modelNode, inputNode) {

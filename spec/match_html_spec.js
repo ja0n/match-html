@@ -1,6 +1,6 @@
 var matchHTML = require('../index');
 
-it("doesn't care for blank lines", function() {
+it("doesn't care for line breaks", function() {
   const expected = "<!DOCTYPE html>\n"
   const given = '<!DOCTYPE html>'
 
