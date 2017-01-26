@@ -1,8 +1,3 @@
-var jsdom = require("jsdom").jsdom;
-var window = jsdom().defaultView;
-var document = window.document;
-
-
 var every = function (context, fn) { return Array.prototype.every.call(context, fn) }
 var find = function (context, fn) { return Array.prototype.find.call(context, fn) }
 var map = function (context, fn) { return Array.prototype.map.call(context, fn) }
