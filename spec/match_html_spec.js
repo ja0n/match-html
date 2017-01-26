@@ -13,3 +13,11 @@ it("knows how to handle comments", function() {
 
   expect(matchHTML(expected, given)).toEqual(true);
 });
+
+it("knows how to handle empty inputs", function() {
+  const expected = "<!DOCTYPE html>\n";
+
+  expect(matchHTML(expected, undefined)).toEqual(false);
+  expect(matchHTML(expected, null)).toEqual(false);
+  expect(matchHTML(expected, '')).toEqual(false);
+});

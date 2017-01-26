@@ -6,6 +6,10 @@ var reservedAttributes = map(['acceptTags', 'childCount'], lowerCase)
 var whitespaceRegex = /\>\s+\</g
 
 function matchHTML(model, input) {
+  if (model.length > 0 && !input || input.length <= 0) {
+    return false
+  }
+
   var modelDOM = makeDOM(removeWhitespace(model))
   var inputDOM = makeDOM(removeWhitespace(input))
 
