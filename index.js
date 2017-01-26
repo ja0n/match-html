@@ -1,3 +1,8 @@
+var jsdom = require("jsdom").jsdom;
+var window = jsdom().defaultView;
+var document = window.document;
+
+
 var every = function (context, fn) { return Array.prototype.every.call(context, fn) }
 var find = function (context, fn) { return Array.prototype.find.call(context, fn) }
 var map = function (context, fn) { return Array.prototype.map.call(context, fn) }
@@ -19,7 +24,12 @@ function makeDOM(html) {
 }
 
 function removeWhitespace(str) {
-  return str.replace(whitespaceRegex, '><')
+  var newStr = str.replace(whitespaceRegex, '><')
+  return removeLineBreaks(newStr);
+}
+
+function removeLineBreaks(str) {
+  return str.replace("\n", '');
 }
 
 function matchDOM(modelNode, inputNode) {
@@ -30,6 +40,8 @@ function matchDOM(modelNode, inputNode) {
   if (modelNode.nodeType === document.TEXT_NODE) {
     return true
     return lowerCase(modelNode.wholeText) === lowerCase(inputNode.wholeText)
+  } else if (modelNode.nodeType === document.COMMENT_NODE) {
+    return true
   }
 
   var acceptTags = modelNode.getAttribute('acceptTags')
@@ -58,7 +70,7 @@ function matchDOM(modelNode, inputNode) {
       var nameIsEqual = inputAttr.nodeName == modelAttr.nodeName
       var valueIsEqual = lowerCase(inputAttr.value) == lowerCase(modelAttr.value)
 
-      return nameIsEqual && valueIsEqual 
+      return nameIsEqual && valueIsEqual
     })
   })
 
@@ -72,7 +84,7 @@ function matchDOM(modelNode, inputNode) {
       return matchDOM(node, inputNode.childNodes[index])
     })
   }
-  
+
   return true
 }
 

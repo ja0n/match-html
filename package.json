@@ -13,5 +13,11 @@
     "validation"
   ],
   "author": "ja0n",
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "jasmine": "^2.5.3"
+  },
+  "dependencies": {
+    "jsdom": "^9.9.1"
+  }
 }
