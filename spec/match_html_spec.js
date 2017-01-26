@@ -1,4 +1,4 @@
-var matchHTML = require('../index');
+var matchHTML = require('../debug');
 
 it("doesn't care for line breaks", function() {
   const expected = "<!DOCTYPE html>\n";
